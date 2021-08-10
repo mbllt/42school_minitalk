@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 23:18:50 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/01 23:45:05 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/10 13:41:23 by mballet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	client(char *pid_srv, char *str)
 	struct sigaction	usr;
 
 	pid_s = ft_atoi(pid_srv);
+	if (!pid_s)
+		return (0);
 	size_str = ft_strlen(str);
 	usr.sa_handler = &handle_sigusr;
 	if ((sigaction(SIGUSR1, &usr, NULL)) < 0)
